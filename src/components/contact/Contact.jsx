@@ -79,6 +79,7 @@ const Contact = () => {
                 name="name"
                 className="contact__form-input"
                 placeholder="Insert your name"
+                autoComplete="name"
               />
             </div>
 
@@ -89,6 +90,7 @@ const Contact = () => {
                 name="email"
                 className="contact__form-input"
                 placeholder="Insert your email"
+                autoComplete="email"
               />
             </div>
 
