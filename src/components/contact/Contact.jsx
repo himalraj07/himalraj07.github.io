@@ -12,10 +12,16 @@ const Contact = () => {
       .sendForm("service_8nygmfm", "template_djfv0j1", form.current, {
         publicKey: "eKKuWbLgn8YeP7Mov",
       })
-      e.target.reset()
+      .then(() => {
+        e.target.reset();
+      })
+      .catch((error) => {
+        console.error("Failed to send email:", error);
+      });
   };
+
   return (
-    <selection className="contact section" id="contact">
+    <section className="contact section" id="contact">
       <h2 className="section__title">Get in touch</h2>
       <span className="section__subtitle">Contact Me</span>
 
@@ -26,10 +32,8 @@ const Contact = () => {
           <div className="contact__info">
             <div className="contact__card">
               <i className="bx bx-mail-send contact__card-icon"></i>
-
               <h3 className="contact__card-title">Email</h3>
               <span className="contact__card-data">user@gmail.com</span>
-
               <a
                 href="mailto:himalrajbhusal@gmail.com"
                 className="contact__button"
@@ -41,10 +45,8 @@ const Contact = () => {
 
             <div className="contact__card">
               <i className="bx bxl-whatsapp contact__card-icon"></i>
-
               <h3 className="contact__card-title">Whatsapp</h3>
               <span className="contact__card-data">999-888-777</span>
-
               <a
                 href="https://api.whatsapp.com/send?phone=9779840040733&text=Hello, Himal Raj Bhusal"
                 className="contact__button"
@@ -56,10 +58,8 @@ const Contact = () => {
 
             <div className="contact__card">
               <i className="bx bxl-messenger contact__card-icon"></i>
-
               <h3 className="contact__card-title">Messenger</h3>
               <span className="contact__card-data">user.fb123</span>
-
               <a href="https://m.me/Himalrajbhusal" className="contact__button">
                 Write me{" "}
                 <i className="bx bx-right-arrow-alt contact__button-icon"></i>
@@ -73,9 +73,12 @@ const Contact = () => {
 
           <form ref={form} onSubmit={sendEmail} className="contact__form">
             <div className="contact__form-div">
-              <label className="contact__form-tag">Name</label>
+              <label className="contact__form-tag" htmlFor="name">
+                Name
+              </label>
               <input
                 type="text"
+                id="name"
                 name="name"
                 className="contact__form-input"
                 placeholder="Insert your name"
@@ -84,9 +87,12 @@ const Contact = () => {
             </div>
 
             <div className="contact__form-div">
-              <label className="contact__form-tag">Mail</label>
+              <label className="contact__form-tag" htmlFor="email">
+                Mail
+              </label>
               <input
                 type="email"
+                id="email"
                 name="email"
                 className="contact__form-input"
                 placeholder="Insert your email"
@@ -95,8 +101,11 @@ const Contact = () => {
             </div>
 
             <div className="contact__form-div contact__form-area">
-              <label className="contact__form-tag">Project</label>
+              <label className="contact__form-tag" htmlFor="project">
+                Project
+              </label>
               <textarea
+                id="project"
                 name="project"
                 cols="30"
                 rows="10"
@@ -108,7 +117,7 @@ const Contact = () => {
             <button className="button button--flex">
               Send Message
               <svg
-                class="button__icon"
+                className="button__icon"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -128,7 +137,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
-    </selection>
+    </section>
   );
 };
 
